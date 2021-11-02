@@ -1,10 +1,13 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class HammerCursor : MonoBehaviour
 {
     private Animator anim;
+    public RectTransform Cursor;
+    public GameObject Bonus;
     
     // Start is called before the first frame update
     void Start()
@@ -16,11 +19,16 @@ public class HammerCursor : MonoBehaviour
     void Update()
     {
         Vector2 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        transform.position = new Vector3(mousePos.x, mousePos.y, transform.position.z);
+        Cursor.anchoredPosition = new Vector2(mousePos.x*100f, mousePos.y*100f);
 
         if (Input.GetMouseButton(0))
         {
-            anim.Play("CursorHit");
+            anim.SetBool("Hit",true);
         }
+    }
+    public void GetScore(){
+
+        Bonus.SetActive(true);
+        anim.SetBool("Hit",false);
     }
 }
