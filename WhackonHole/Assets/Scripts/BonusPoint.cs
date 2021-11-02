@@ -6,6 +6,8 @@ using UnityEngine.UI;
 public class BonusPoint : MonoBehaviour
 {
     public GameObject Point;
+    public Text Score;
+    private int i=0;
     // Start is called before the first frame update
     void Start()
     {
@@ -19,7 +21,9 @@ public class BonusPoint : MonoBehaviour
     }
 
     public void ShowPoint(){
-     Point.SetActive(true);
+    i+=100;
+    Score.text=i.ToString();
+    Point.SetActive(true);
     }
 
     public void PointOut(){
