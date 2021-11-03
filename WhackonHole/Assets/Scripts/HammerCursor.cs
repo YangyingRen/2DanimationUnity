@@ -29,6 +29,11 @@ public class HammerCursor : MonoBehaviour
     public void GetScore(){
 
         Bonus.SetActive(true);
-        anim.SetBool("Hit",false);
     }
+
+    public void FinishHit(){
+        anim.SetBool("Hit",false);
+
+    }
+
 }
